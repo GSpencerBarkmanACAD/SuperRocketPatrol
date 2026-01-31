@@ -65,7 +65,7 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
         }
-        this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(this.timeDuration / 1000), timerConfig).setOrigin(1, 0)
+        this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(game.settings.gameTimer / 1000), timerConfig).setOrigin(1, 0)
     }
 
     update() {
@@ -86,14 +86,17 @@ class Play extends Phaser.Scene {
         if (this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship03)
+            this.clock.delay += 5000
         }
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship02)
+            this.clock.delay += 5000
         }
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship01)
+            this.clock.delay += 5000
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {

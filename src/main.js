@@ -1,6 +1,7 @@
 // G. Spencer Barkman
 // Super Rocket Patrol
-// Took (2) Hours
+// Took (4) Hours
+// Total Points: 10/20
 // New Enemy Spaceship type (5 points)
 // 4 New Explosion SFX (3 points)
 // * Display the time remaining (in seconds) on the screen (3)
@@ -8,7 +9,7 @@
 // * Speed increase after 30 seconds(1)
 // Randomize spaceship's direction (1)
 // * Allow the player to control the Rocket after it's fired (1) 
-// Implement a new timing/scoring mechanism that adds time to the clock for successful hits and subtracts time for misses (5)
+// * Implement a new timing/scoring mechanism that adds time to the clock for successful hits and subtracts time for misses (5)
 
 
 let config = {
