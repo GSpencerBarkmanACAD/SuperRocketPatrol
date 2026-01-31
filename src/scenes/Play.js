@@ -43,6 +43,8 @@ class Play extends Phaser.Scene {
 
         this.gameOver = false
 
+        this.SpedUp = false
+
         // 60-second play clock
         scoreConfig.fixedWidth = 0
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
@@ -104,6 +106,13 @@ class Play extends Phaser.Scene {
             const seconds = Math.ceil(this.clock.getRemainingSeconds());
             this.timerRight.setText(seconds);
 
+            if (this.SpedUp == false && seconds <= Math.ceil(game.settings.gameTimer / 2000)) {
+                this.ship01.moveSpeed *= 2
+                this.ship02.moveSpeed *= 2
+                this.ship03.moveSpeed *= 2
+                this.SpedUp = true
+            }
+
         }
         
 
@@ -123,7 +132,7 @@ class Play extends Phaser.Scene {
 
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
         boom.anims.play('explode')
-        boom.on('animationcomplete', () => { //when animation is ocmplete
+        boom.on('animationcomplete', () => { //when animation is commplete
             ship.reset()
             ship.alpha = 1 //ship reappears in reset position
             boom.destroy() //remove explosion sprite
