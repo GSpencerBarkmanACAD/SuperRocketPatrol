@@ -66,6 +66,8 @@ class Play extends Phaser.Scene {
             fixedWidth: 100
         }
         this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(game.settings.gameTimer / 1000), timerConfig).setOrigin(1, 0)
+
+        this.explosions_sfx = ['sfx-explosion', 'sfx-explosion2', 'sfx-explosion3', 'sfx-explosion4', 'sfx-explosion5']
     }
 
     update() {
@@ -86,17 +88,17 @@ class Play extends Phaser.Scene {
         if (this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship03)
-            this.clock.delay += 5000
+            this.clock.delay += 2000
         }
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship02)
-            this.clock.delay += 5000
+            this.clock.delay += 2000
         }
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship01)
-            this.clock.delay += 5000
+            this.clock.delay += 2000
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
@@ -143,6 +145,8 @@ class Play extends Phaser.Scene {
 
         this.p1Score += ship.points
         this.scoreLeft.text = this.p1Score 
-        this.sound.play('sfx-explosion')
+        
+        let random = Phaser.Math.RND.pick(this.explosions_sfx)
+        this.sound.play(random)
     }
 }
