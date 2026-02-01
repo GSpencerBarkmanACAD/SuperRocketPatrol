@@ -68,11 +68,17 @@ class Play extends Phaser.Scene {
         this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(game.settings.gameTimer / 1000), timerConfig).setOrigin(1, 0)
 
         this.explosions_sfx = ['sfx-explosion', 'sfx-explosion2', 'sfx-explosion3', 'sfx-explosion4', 'sfx-explosion5']
+
+        this.sound.play('soundtrack', {
+            loop: true,
+            volume: 0.5,
+        })
     }
 
     update() {
 
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyRESET)) {
+            this.sound.stopAll()
             this.scene.restart()
         }
 
@@ -102,6 +108,7 @@ class Play extends Phaser.Scene {
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.sound.stopAll()
             this.scene.start("menuScene")
         }
 

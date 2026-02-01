@@ -22,6 +22,10 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx-explosion4', './assets/sfx-explosion4.wav')
         this.load.audio('sfx-explosion5', './assets/sfx-explosion5.wav')
         this.load.audio('sfx-shot', './assets/sfx-rocket.wav')
+
+        //Game 8 Bit Medium by moodmode
+        this.load.audio('soundtrack', './assets/game-8-bit-medium.mp3')
+        
     }
 
     create() {
