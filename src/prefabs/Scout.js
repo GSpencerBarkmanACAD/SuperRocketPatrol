@@ -5,7 +5,7 @@ class Scout extends Phaser.GameObjects.Sprite {
         scene.add.existing(this)
 
         this.points = pointValue
-        this.moveSpeed = game.settings.spaceshipSpeed * 2
+        this.moveSpeed = game.settings.spaceshipSpeed + 1.5
 
     }
 

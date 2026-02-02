@@ -19,7 +19,7 @@ class Play extends Phaser.Scene {
         this.ship02 = new Spaceship (this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2,'spaceship', 0, 20).setOrigin(0, 0)
         this.ship03 = new Spaceship (this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0, 0)
 
-        this.scout = new Scout (this, game.config.width, borderUISize*5 + borderUISize*5, 'scout', 0, 50).setOrigin(0, 0)
+        this.scout = new Scout (this, game.config.width, borderUISize*5 + borderUISize*4, 'scout', 0, 50).setOrigin(0, 0)
 
 
         keyFIRE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
@@ -69,7 +69,7 @@ class Play extends Phaser.Scene {
         }
         this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(game.settings.gameTimer / 1000), timerConfig).setOrigin(1, 0)
 
-        this.FIRE = this.add.text(game.config.width/2, borderUISize + borderPadding*2, 'FIRE', scoreConfig)
+        this.FIRE = this.add.text(game.config.width/2 - 24, borderUISize + borderPadding*2, 'FIRE', scoreConfig)
         this.FIRE.alpha = 0
 
         this.explosions_sfx = ['sfx-explosion', 'sfx-explosion2', 'sfx-explosion3', 'sfx-explosion4', 'sfx-explosion5']
