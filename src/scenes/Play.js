@@ -139,10 +139,10 @@ class Play extends Phaser.Scene {
             }
 
             if (this.SpedUp == false && seconds <= Math.ceil(game.settings.gameTimer / 2000)) {
-                this.ship01.moveSpeed *= 2
-                this.ship02.moveSpeed *= 2
-                this.ship03.moveSpeed *= 2
-                this.scout.moveSpeed *= 1.5
+                this.ship01.moveSpeed *= 1.5
+                this.ship02.moveSpeed *= 1.5
+                this.ship03.moveSpeed *= 1.5
+                this.scout.moveSpeed *= 2
                 this.SpedUp = true
             }
 

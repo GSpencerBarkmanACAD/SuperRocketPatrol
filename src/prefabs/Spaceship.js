@@ -7,7 +7,6 @@ class Spaceship extends Phaser.GameObjects.Sprite {
         this.points = pointValue
         this.moveSpeed = game.settings.spaceshipSpeed
 
-        //this.direction = Phaser.Math.RND.pick([-1, 1])
     }
 
     update() {

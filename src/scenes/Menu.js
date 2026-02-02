@@ -7,7 +7,7 @@ class Menu extends Phaser.Scene {
         this.load.image('rocket', './assets/rocket.png')
         this.load.image('spaceship', './assets/spaceship.png')
         this.load.image('starfield', './assets/starfield.png')
-        
+
         this.load.image('scout', './assets/scoutship.png')
 
         this.load.spritesheet('explosion', './assets/explosion.png', {
@@ -25,7 +25,6 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx-explosion5', './assets/sfx-explosion5.wav')
         this.load.audio('sfx-shot', './assets/sfx-rocket.wav')
 
-        //Game 8 Bit Medium by moodmode
         this.load.audio('soundtrack', './assets/game-8-bit-medium.mp3')
         
     }
