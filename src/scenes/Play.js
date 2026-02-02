@@ -69,6 +69,9 @@ class Play extends Phaser.Scene {
         }
         this.timerRight = this.add.text(game.config.width - borderUISize - borderPadding, borderUISize + borderPadding*2, Math.ceil(game.settings.gameTimer / 1000), timerConfig).setOrigin(1, 0)
 
+        this.FIRE = this.add.text(game.config.width/2, borderUISize + borderPadding*2, 'FIRE', scoreConfig)
+        this.FIRE.alpha = 0
+
         this.explosions_sfx = ['sfx-explosion', 'sfx-explosion2', 'sfx-explosion3', 'sfx-explosion4', 'sfx-explosion5']
 
         this.sound.play('soundtrack', {
@@ -96,22 +99,26 @@ class Play extends Phaser.Scene {
 
         if (this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset()
+            this.FIRE.alpha = 0
             this.shipExplode(this.ship03)
             this.clock.delay += 2000
         }
         if (this.checkCollision(this.p1Rocket, this.ship02)) {
             this.p1Rocket.reset()
+            this.FIRE.alpha = 0
             this.shipExplode(this.ship02)
             this.clock.delay += 2000
         }
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset()
+            this.FIRE.alpha = 0
             this.shipExplode(this.ship01)
             this.clock.delay += 2000
         }
 
         if (this.checkCollision(this.p1Rocket, this.scout)) {
             this.p1Rocket.reset()
+            this.FIRE.alpha = 0
             this.shipExplode(this.scout)
             this.clock.delay += 5000
         }
@@ -126,6 +133,10 @@ class Play extends Phaser.Scene {
             
             const seconds = Math.ceil(this.clock.getRemainingSeconds());
             this.timerRight.setText(seconds);
+
+            if (this.p1Rocket.isFiring) {
+                this.FIRE.alpha = 1
+            }
 
             if (this.SpedUp == false && seconds <= Math.ceil(game.settings.gameTimer / 2000)) {
                 this.ship01.moveSpeed *= 2
